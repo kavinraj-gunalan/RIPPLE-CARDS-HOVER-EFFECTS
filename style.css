@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+*
+ {
+	margin: 0;
+	padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins',sans-serif;
+  }
+  .video-container {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+
+  }
+  
+  #bg-video {
+	position: absolute;
+	top:-100px;
+	left: 0px;
+	z-index: -1;
+  }
+  .heading
+  {
+	text-align: center;
+	color: white;
+	font-size: 25px;
+	position: relative;
+  }
+  .heading h1
+  {
+	text-shadow: 3px 3px steelblue;
+  }
+.contain
+{
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 50px;
+}
+.contain .card
+{
+	position: relative;
+	width: 225px;
+	height: 225px;
+	background-color: rgba(0, 0, 0, 0.4);
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+	align-items: center;
+	box-shadow: 0 10px 25px rgba(129, 115, 115, 0.25);
+	border-radius: 50px;
+	backdrop-filter: blur(10px);
+	
+	
+}
+.contain .card::before
+{
+	content: attr(data-text);
+	position: absolute;
+	font-weight: 800;
+	text-transform: uppercase;
+	font-size: 1.5em;
+	color: transparent;
+	transform: rotate(-45deg);
+	-webkit-text-stroke:4px white;
+	text-align: center;
+	z-index: 1;
+	background-size: cover;
+	border-radius: 50px;
+}
+.card::after
+{
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: var(--img);
+	background-size: cover;
+	clip-path: circle(0px at var(--x) var(--y) );
+	z-index: 2;
+	transition: clip-path 0.2s;
+	background-size: cover;
+	border-radius: 50px;
+}
+.card:hover::after
+{
+	
+	clip-path: circle(100px at var(--x) var(--y) );
+}
+.card:hover{
+	
+	outline: 10px groove rgba(0, 0, 0, 0.7);
+	outline-offset: 3px;
+}
